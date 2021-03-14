@@ -11,11 +11,11 @@ class Form{
     }
     display(){
         var title = createElement("h2","Car Racing Game");
-        title.position(150,0);
+        title.position(displayWidth/2 - 80,0);
         
-        this.input.position(150,100);
+        this.input.position(displayWidth/2 - 80,displayHeight/2);
         
-        this.button.position(150,200);
+        this.button.position(displayWidth/2 - 80,displayHeight/2 + 100);
         this.button.mousePressed(()=>{
             this.input.hide();
             this.button.hide();
@@ -25,7 +25,7 @@ class Form{
             player.updateCount(playerCount);
             player.update();
             this.greeting.html("Welcome! "+player.name);
-            this.greeting.position(150,150);
+            this.greeting.position(displayWidth/2 - 80,displayHeight/2);
         });
 
     }
