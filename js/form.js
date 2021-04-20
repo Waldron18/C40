@@ -2,6 +2,7 @@ class Form{
     constructor(){
         this.input = createInput("name");
         this.button = createButton("PLAY");
+        this.button2 = createButton("RESET")
         this.greeting = createElement("h2");
     }
     hide(){
@@ -27,6 +28,14 @@ class Form{
             this.greeting.html("Welcome! "+player.name);
             this.greeting.position(displayWidth/2 - 80,displayHeight/2);
         });
+        this.button2.position(displayWidth/2-80, displayHeight/20);
+        this.button2.mousePressed(()=>{
+            db.ref('/').set({
+                playerCount:0,
+                gameState:0
+            })
+            location.reload();
+        })
 
     }
 }

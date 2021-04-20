@@ -51,13 +51,15 @@ class Game {
                 cars[index-1].x = x;
                 cars[index-1].y = y;
                 if(index===player.index){
-                    cars[index-1].shapeColor = "red";
+                    rectMode(CENTER);
+                    fill("blue");
+                    rect(x,y,100,150);
                     camera.position.x = displayWidth/2;
                     camera.position.y = y;
                 }  
             }
         }
-        if(player.distance > 5000){
+        if(player.distance > 4150){
             gameState = 2;
         }
 
