@@ -3,6 +3,7 @@ class Player {
         this.name = null;
         this.distance = 0;
         this.index = null;
+        this.rank = 0;
     }
 
     getPlayerCount(){
@@ -12,11 +13,16 @@ class Player {
         })
     }
     updateCount(count){
-        db.ref("/").update({playerCount: count});
+        db.ref("/").update({
+            playerCount: count
+        });
     }
     update(){
         var playerIndex = "players/player" + this.index
-        db.ref(playerIndex).update({name: this.name, distance: this.distance});
+        db.ref(playerIndex).update({
+            name: this.name, 
+            distance: this.distance, 
+            rank: this.rank});
     }
 
     static fetchPlayerInfo(){
@@ -25,4 +31,15 @@ class Player {
             allPlayers = data.val();
         });
     }
+
+    getcarsAtEnd(){
+        db.ref('carsAtEnd').on("value",(data)=>{
+            this.rank = data.val();
+        })
+    }
+
+    static updatecarsAtEnd(rank){
+        db.ref('/').update({carsAtEnd: rank});
+    }
+
 }

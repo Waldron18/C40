@@ -32,7 +32,8 @@ class Form{
         this.button2.mousePressed(()=>{
             db.ref('/').set({
                 playerCount:0,
-                gameState:0
+                gameState:0,
+                carsAtEnd:0
             })
             location.reload();
         })
